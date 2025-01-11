@@ -9,7 +9,7 @@ import libraries.Sheet_Operations
 import json
 from scipy.ndimage import gaussian_filter
 from scipy.signal import savgol_filter
-from scipy.integrate import cumtrapz
+from scipy.integrate import cumulative_trapezoid
 
 
 def _clear_peak_params_grid(window):
@@ -644,7 +644,7 @@ class PlotModWindow(wx.Frame):
         x = self.parent.Data['Core levels'][sheet_name]['B.E.']
         y = self.parent.Data['Core levels'][sheet_name]['Raw Data']
 
-        integrated = cumtrapz(y, x, initial=0)
+        integrated = cumulative_trapezoid(y, x, initial=0)
         smoothed_int = savgol_filter(integrated, width, 3)
 
         # new_sheet = f"{sheet_name}_i"

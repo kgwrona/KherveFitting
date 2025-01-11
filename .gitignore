@@ -2,3 +2,4 @@
 /DATA/
 /DOCs/
 /.venv/
+**/__pycache__/
